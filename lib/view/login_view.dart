@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_arch/utils/utils.dart';
+import 'package:mvvm_arch/view_model/auth_view_model.dart';
 import 'package:mvvm_arch/widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
@@ -15,6 +17,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       appBar: AppBar(title: const Text("Login")),
       body: SafeArea(
@@ -75,11 +78,12 @@ class LoginView extends StatelessWidget {
                     Utils.flushBarErrorMessage(
                         "Password must be at least 6 digit", context);
                   } else {
-                    print("api hit");
-                    // _emailController.dispose();
-                    // _passwordController.dispose();
-                    // emailFocusNode.dispose();
-                    // passwordFocusNode.dispose();
+                    Map data = {
+                      'email': _emailController.text.toString(),
+                      'password': _passwordController.text.toString(),
+                    };
+                    authViewModel.loginApi(data, context);
+                    //print("api hit");
                   }
                 }),
           ],
