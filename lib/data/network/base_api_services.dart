@@ -7,7 +7,7 @@ import 'package:mvvm_arch/data/network/network_api_services.dart';
 
 class NetworkApiService extends BaseApiServices {
   @override
-  Future getGetApiResponse(String url) async {
+  Future<dynamic> getGetApiResponse(String url) async {
     dynamic responseJson;
     try {
       final response =
@@ -20,17 +20,17 @@ class NetworkApiService extends BaseApiServices {
   }
 
   @override
-  Future getPostApiResponse(String url, dynamic data) async {
+  Future<dynamic> getPostApiResponse(String url, dynamic data) async {
     dynamic responseJson;
 
     try {
       Response response = await post(
         Uri.parse(url),
         body: data,
-      ).timeout(const Duration(seconds: 30));
-      response = returnResponse(response);
+      ).timeout(const Duration(seconds: 10));
+      responseJson = returnResponse(response);
     } on SocketException {
-      throw FetchDataException("No Internet Connection");
+      return FetchDataException("No Internet Connection");
     }
 
     return responseJson;
@@ -42,13 +42,13 @@ class NetworkApiService extends BaseApiServices {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       case 400:
-        throw BadRequestException(response.body.toString());
+        return BadRequestException(response.body.toString());
       case 404:
-        throw BadRequestException(response.body.toString());
+        return BadRequestException(response.body.toString());
       case 500:
-        throw BadRequestException(response.body.toString());
+        return BadRequestException(response.body.toString());
       default:
-        throw FetchDataException(
+        return FetchDataException(
             "Error occured while communicating with server with status code: " +
                 response.statusCode.toString());
     }
