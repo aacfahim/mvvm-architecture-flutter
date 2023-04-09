@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mvvm_arch/repository/auth_repo.dart';
+import 'package:mvvm_arch/domain/repository/auth_repo.dart';
 import 'package:mvvm_arch/utils/utils.dart';
 
 class AuthViewModel with ChangeNotifier {

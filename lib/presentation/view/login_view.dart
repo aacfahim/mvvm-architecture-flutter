@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_arch/utils/utils.dart';
-import 'package:mvvm_arch/view_model/auth_view_model.dart';
-import 'package:mvvm_arch/widgets/custom_button.dart';
+import 'package:mvvm_arch/presentation/view_model/auth_view_model.dart';
+import 'package:mvvm_arch/presentation/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_arch/utils/routes/routes_name.dart';
-import 'package:mvvm_arch/view/home_view.dart';
-import 'package:mvvm_arch/view/login_view.dart';
+import 'package:mvvm_arch/presentation/view/home_view.dart';
+import 'package:mvvm_arch/presentation/view/login_view.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
