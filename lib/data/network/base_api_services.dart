@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:mvvm_arch/data/app_exceptions.dart';
 import 'package:mvvm_arch/data/network/network_api_services.dart';
+import 'package:mvvm_arch/utils/app_url.dart';
+import 'package:mvvm_arch/utils/utils.dart';
 
 class NetworkApiService extends BaseApiServices {
   @override
