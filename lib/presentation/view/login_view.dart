@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_arch/utils/routes/routes_name.dart';
 import 'package:mvvm_arch/utils/utils.dart';
 import 'package:mvvm_arch/presentation/view_model/auth_view_model.dart';
 import 'package:mvvm_arch/presentation/widgets/custom_button.dart';
@@ -87,6 +88,19 @@ class LoginView extends StatelessWidget {
                     //print("api hit");
                   }
                 }),
+            const SizedBox(height: 18),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Don't have an account?"),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, RoutesName.signup);
+                    },
+                    child: const Text("Sign up")),
+              ],
+            ),
           ],
         ),
       ),
