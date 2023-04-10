@@ -68,6 +68,7 @@ class LoginView extends StatelessWidget {
             const SizedBox(height: 18),
             CustomButton(
                 title: "Test",
+                loading: authViewModel.loading,
                 onPress: () {
                   if (_emailController.text.isEmpty) {
                     Utils.flushBarErrorMessage("Please enter email", context);
