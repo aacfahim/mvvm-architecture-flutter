@@ -24,7 +24,11 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.0)),
         child: Center(
             child: loading
-                ? CircularProgressIndicator(color: Colors.white)
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 25),
+                    child: CircularProgressIndicator(color: Colors.white),
+                  )
                 : Text(title,
                     style: const TextStyle(color: AppColors.whiteColor))),
       ),
