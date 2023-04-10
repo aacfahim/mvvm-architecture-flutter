@@ -19,11 +19,15 @@ class AuthViewModel with ChangeNotifier {
     setLoading(true);
     _myRepo.loginApi(data).then((value) {
       setLoading(false);
-      Utils.flushBarErrorMessage(value.toString(), context);
-      // Utils.flushBarErrorMessage("Login Successfully", context);
-      print(value.toString());
+      //Utils.flushBarErrorMessage(value.toString(), context);
 
-      Navigator.pushNamed(context, RoutesName.home);
+      if (value.toString().contains("token")) {
+        Utils.flushBarErrorMessage("Login Successfully", context);
+        Navigator.pushNamed(context, RoutesName.home);
+      } else {
+        Utils.flushBarErrorMessage(value.toString(), context);
+      }
+      print(value.toString());
     }).onError((error, stackTrace) {
       setLoading(false);
 
