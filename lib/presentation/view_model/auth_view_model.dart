@@ -18,7 +18,7 @@ class AuthViewModel with ChangeNotifier {
   }
 
   setsignUpLoading(bool value) {
-    _loading = value;
+    _signUploading = value;
     notifyListeners();
   }
 
