@@ -8,8 +8,8 @@ class ApiResponse<T> {
   ApiResponse(this.status, this.data, this.message);
 
   ApiResponse.loadiing() : status = Status.LOADING;
-  ApiResponse.completed() : status = Status.COMPLETED;
-  ApiResponse.error() : status = Status.ERROR;
+  ApiResponse.completed(this.data) : status = Status.COMPLETED;
+  ApiResponse.error(this.message) : status = Status.ERROR;
 
   // factory keyword allows for more flexibility in constructing objects
   //especially when the exact implementation details of the object creation can vary.

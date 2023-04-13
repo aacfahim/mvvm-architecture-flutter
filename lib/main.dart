@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_arch/presentation/view_model/home_view_model.dart';
 import 'package:mvvm_arch/presentation/view_model/user_view_model.dart';
 import 'package:mvvm_arch/utils/routes/routes.dart';
 import 'package:mvvm_arch/utils/routes/routes_name.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
         ChangeNotifierProvider(create: (_) => UserViewModel()),
+        ChangeNotifierProvider(create: (_) => HomeViewModel()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
