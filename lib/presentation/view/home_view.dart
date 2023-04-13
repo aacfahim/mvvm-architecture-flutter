@@ -52,16 +52,16 @@ class _HomeViewState extends State<HomeView> {
                 case Status.ERROR:
                   return Text(value.movieList.message.toString());
                 case Status.COMPLETED:
-                  return const Text("Data Recieved");
+                  return ListView.builder(
+                    itemCount: value.movieList.data!.movies!.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                          child: Text(value.movieList.data!.movies![index].title
+                              .toString()));
+                    },
+                  );
               }
-              return ListView.builder(
-                itemBuilder: (context, index) {
-                  return Card(
-                      child: Text(value.movieList.data!.movies![index].title
-                          .toString()));
-                },
-                itemCount: value.movieList.data!.movies!.length,
-              );
+              return Container();
             },
           ),
         ));

@@ -9,7 +9,7 @@ class HomeRepository {
   Future<MovieListModel> getMovies() async {
     try {
       dynamic response =
-          await _apiServices.getGetApiResponse(AppUrl.moviesBaseUrl);
+          await _apiServices.getGetApiResponse(AppUrl.moviesListEndPoint);
       return response = MovieListModel.fromJson(response);
     } catch (e) {
       print(e.toString());
