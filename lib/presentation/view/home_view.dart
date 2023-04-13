@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
             builder: (context, value, child) {
               switch (value.movieList.status) {
                 case Status.LOADING:
-                  return CircularProgressIndicator();
+                  return const Center(child: CircularProgressIndicator());
                 case Status.ERROR:
                   return Text(value.movieList.message.toString());
                 case Status.COMPLETED:
@@ -56,12 +56,21 @@ class _HomeViewState extends State<HomeView> {
                     itemCount: value.movieList.data!.movies!.length,
                     itemBuilder: (context, index) {
                       return Card(
-                          child: Text(value.movieList.data!.movies![index].title
-                              .toString()));
+                          child: ListTile(
+                        title: Text(value.movieList.data!.movies![index].title
+                            .toString()),
+                        leading: Image.network(value
+                            .movieList.data!.movies![index].posterurl
+                            .toString()),
+                        subtitle: Text(value
+                            .movieList.data!.movies![index].genres
+                            .toString()),
+                      ));
                     },
                   );
+                default:
+                  return const Text("Something went wront");
               }
-              return Container();
             },
           ),
         ));
